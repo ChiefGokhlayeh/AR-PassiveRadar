@@ -1,0 +1,66 @@
+\documentclass[12pt,oneside,english]{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[binary-units=true]{siunitx}
+\usepackage[english=american]{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage[style=iso-authoryear,minnames=1,maxnames=3,giveninits,uniquename=init]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{datetime}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{tikz-qtree}
+\usepackage{tikz}
+\usepackage{tocbibind}
+
+\addbibresource{references.bib}
+\setlength{\bibhang}{0cm} % left-align bibliography
+\setlength{\headheight}{15pt}
+
+% textidote: ignore begin
+\captionsetup{justification=centering}
+% textidote: ignore end
+\fancyfoot[C,C]{\thepage}
+\fancyfoot{}
+\fancyhead[R,L]{\leftmark}
+\fancyhead{}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername{} \ \thechapter.\ #1}{}}
+\pagestyle{fancy}
+
+\graphicspath{{images/}}
+
+\sisetup{locale = US}
+
+\usetikzlibrary{shadows,trees,arrows.meta,positioning,math}
+\pgfplotsset{width=9cm,compat=1.9}
+
+\title{Passive Radar}
+\date{December 2020}
+\author{Andreas Baulig}
+
+\begin{document}
+
+\input{titlepage}
+\input{chapters/abstract}
+\input{chapters/declaration}
+
+\tableofcontents
+\listoffigures
+
+\input{chapters/introduction}
+
+\printbibliography
+
+\end{document}

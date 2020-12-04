@@ -1,0 +1,15 @@
+CmdLine
+{
+    -n21
+}
+
+Silent
+{
+    \printbibliography
+
+    \hrulefill
+
+    \cleardoublepage
+
+    \textbackslash
+}

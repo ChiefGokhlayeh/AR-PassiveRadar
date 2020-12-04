@@ -1,0 +1,23 @@
+name: Build LaTeX document
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build_latex:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: satackey/action-latex@v2
+              with:
+                  docker-image: gokhlayeh/latex
+                  build-entrypoint: latexmk
+                  build-files: main.tex
+                  build-args: -pdf -shell-escape -interaction=nonstopmode -file-line-error -output-directory="build"
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: Internship Report
+                  path: build/main.pdf
