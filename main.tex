@@ -6,8 +6,9 @@
 \usepackage[english=american]{csquotes}
 \usepackage[hidelinks]{hyperref}
 \usepackage[english]{babel}
-\usepackage[style=iso-authoryear,minnames=1,maxnames=3,giveninits,uniquename=init]{biblatex}
+\usepackage[style=iso-numeric,minnames=1,maxnames=3,giveninits,uniquename=init]{biblatex}
 \usepackage[T1]{fontenc}
+\usepackage[super]{nth}
 \usepackage{amsmath}
 \usepackage{array}
 \usepackage{booktabs}
@@ -43,8 +44,11 @@
 
 \sisetup{locale = US}
 
-\usetikzlibrary{shadows,trees,arrows.meta,positioning,math}
+\usetikzlibrary{arrows.meta,calc,math,positioning,shadows,trees}
+\tikzset{>=Stealth}
 \pgfplotsset{width=9cm,compat=1.9}
+
+\renewcommand*{\mkcitation}[1]{ #1}
 
 \title{Passive Radar}
 \date{December 2020}
@@ -52,14 +56,15 @@
 
 \begin{document}
 
-\input{titlepage}
-\input{chapters/abstract}
-\input{chapters/declaration}
+\include{titlepage}
+\include{chapters/abstract}
+\include{chapters/declaration}
 
 \tableofcontents
 \listoffigures
 
-\input{chapters/introduction}
+\include{chapters/introduction}
+\include{chapters/theory_of_operation}
 
 \printbibliography
 

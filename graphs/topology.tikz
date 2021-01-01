@@ -1,0 +1,14 @@
+% !TeX root = ../main.tex
+\coordinate (rx1_coord) at (-2,0);
+\coordinate (tx1_coord) at (2,0);
+\coordinate (target_coord) at (1.25,3);
+
+\node at (tx1_coord) [draw,fill=white] (tx1) {Illuminator};
+
+\node at (rx1_coord) [draw,fill=white] (rx) {Receiver};
+
+\node at (target_coord) [label={[fill=white]above:Target}] (target) {\faPlane};
+
+\draw [->,color=red] (tx1) -- (target);
+\draw [->,color=red] (target) -- (rx);
+\draw [->,color=blue] (tx1) -- (rx);
