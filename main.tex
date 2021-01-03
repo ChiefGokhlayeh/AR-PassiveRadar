@@ -33,12 +33,13 @@
 % textidote: ignore begin
 \captionsetup{justification=centering}
 % textidote: ignore end
-\fancyfoot[C,C]{\thepage}
-\fancyfoot{}
-\fancyhead[R,L]{\leftmark}
-\fancyhead{}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername{} \ \thechapter.\ #1}{}}
 \pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\leftmark}
+\fancyfoot{}
+\fancyfoot[CO,CE]{\thepage}
+\setlength{\headheight}{15pt}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername{} \ \thechapter.\ #1}{}}
 
 \graphicspath{{images/}}
 
