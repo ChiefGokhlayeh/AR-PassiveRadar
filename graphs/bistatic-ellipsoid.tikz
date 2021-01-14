@@ -1,0 +1,50 @@
+% !TeX root = ../main.tex
+\def\R{25}
+\def\F{10}
+\def\a{sqrt((\R/2)^2)}
+\def\b{sqrt((\R/2)^2 - \F^2)}
+\def\c{\b}
+\def\xmin{-int(\a + 5 - mod(\a - 5, 5))}
+\def\ymin{-int(\b + 5 - mod(\b - 5, 5))}
+\def\zmin{-int(\c + 5 - mod(\c - 5, 5))}
+\def\xmax{+int(\a + 5 - mod(\a - 5, 5))}
+\def\ymax{+int(\b + 5 - mod(\b - 5, 5))}
+\def\zmax{+int(\c + 5 - mod(\c - 5, 5)))}
+\begin{axis}[
+        z buffer=sort,
+        axis equal,
+        colormap/viridis,
+        samples=31,
+        xmin=\xmin,
+        ymin=\ymin,
+        zmin=\zmin,
+        xmax=\xmax,
+        ymax=\ymax,
+        zmax=\zmax,
+        xlabel=$x$ \si{\kilo\metre},
+        ylabel=$y$ \si{\kilo\metre},
+        zlabel=$z$ \si{\kilo\metre},
+        grid=major,
+        view/az=25,
+        view/el=30,
+    ]
+    \addplot3 coordinates {
+            (\F,0,0)
+            (\F,0,\zmin)
+        } node[left,pos=0] {Rx};
+    \addplot3 coordinates {
+            (-\F,0,0)
+            (-\F,0,\zmin)
+        } node[left,pos=0] {Tx};
+    \addplot3 [
+        surf,
+        shader=faceted interp,
+        opacity=1,
+        domain=0:180,
+        y domain=0:360,
+    ] (
+    {\a*sin(x)*cos(y)},
+    {\b*sin(x)*sin(y)},
+    {\c*cos(x)}
+    );
+\end{axis}

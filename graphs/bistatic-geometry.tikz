@@ -1,0 +1,26 @@
+% !TeX root = ../main.tex
+\coordinate (rx1_coord) at (-2,0);
+\coordinate (tx1_coord) at (2,0);
+\coordinate (target_coord) at (1,1.25);
+
+\node at (tx1_coord) [draw,fill=white] (tx1) {Tx};
+
+\node at (rx1_coord) [draw,fill=white] (rx) {Rx};
+
+\begin{scope}
+    \clip
+    let
+    \p1=(target_coord),
+    in
+    (\x1 - 0.75cm,\y1 + 0.75cm) rectangle +(1.5,-1.5);
+    \draw [color=gray]
+    (2.42539052968,0) arc [start angle=0,end angle=360,x radius=2.42539052968,y radius=1.37204927807];
+\end{scope}
+
+\node at (target_coord) [label={[fill=white]above:Target}] (target) {\faPlane};
+
+\draw [->,color=red] (tx1) -- node [black,midway,right,align=center] {$R_1$} (target);
+\draw [->,color=red] (target) -- node [black,midway,left=4pt,align=center] {$R_2$} (rx);
+\draw [->,color=blue] (tx1) -- node [black,midway,below,align=center] {$R_{\text{b}}$} (rx);
+
+\pic [draw,angle radius=1cm,"$\beta$"] {angle=rx1_coord--target_coord--tx1_coord};
