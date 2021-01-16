@@ -287,6 +287,3 @@ TSWLatexianTemp*
 
 # LaTeX indent temporary files
 **/__latexindent_temp.tex
-
-# Generated PostScript files
-/matlab/*.eps
