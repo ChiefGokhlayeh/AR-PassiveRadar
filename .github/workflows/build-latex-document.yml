@@ -16,7 +16,7 @@ jobs:
                   docker-image: gokhlayeh/latex
                   build-entrypoint: latexmk
                   build-files: main.tex
-                  build-args: -pdf -shell-escape -interaction=nonstopmode -file-line-error -output-directory="build"
+                  build-args: -pdf -interaction=nonstopmode -file-line-error -outdir=build
             - uses: actions/upload-artifact@v2
               with:
                   name: Internship Report
