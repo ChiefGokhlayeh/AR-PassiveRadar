@@ -1,3 +1,3 @@
---check de
---dict resources/de.dict
+--check en
+--dict resources/en.dict
 --remove-macros listoffigures,tableofcontents,parencite,today,vfill

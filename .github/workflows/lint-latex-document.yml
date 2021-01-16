@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: ChiefGokhlayeh/textidote-action@v3
+            - uses: ChiefGokhlayeh/textidote-action@main
               with:
                   root_file: main.tex
             - uses: actions/upload-artifact@v2

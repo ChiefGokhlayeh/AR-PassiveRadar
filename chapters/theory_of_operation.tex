@@ -1,7 +1,7 @@
 % !TeX root = ../main.tex
 \chapter{Theory of Operation}\label{chp:theory_of_operation}
 
-Passive radar employs a wide variety of data processing techniques to accomplish target detection and measurement. The information captured allows determining, both, range and velocity relative to a sensing observer. It does so, by correlating target echos of ambient electromagnetic waves with the direct path reference signal originating from the illuminator. Doing so produces an ellipsoidal locus of possible bistatic target locations. Different methods are then used to solve the ambiguity of bistatic location and produce a probable cartesian position, relative to the sensor. In a strictly layered sense, this is where tracking and classification algorithms take over to definitely determine the object type, position, and heading.
+Passive radar employs a wide variety of data processing techniques to accomplish target detection and measurement. The information captured allows determining, both, range and velocity relative to a sensing observer. It does so, by correlating target echos of ambient electromagnetic waves with the direct path reference signal originating from the illuminator. Doing so produces an ellipsoidal locus of possible bistatic target locations. Different methods are then used to solve the ambiguity of bistatic location and produce a probable Cartesian position, relative to the sensor. In a strictly layered sense, this is where tracking and classification algorithms take over to definitely determine the object type, position, and heading.
 
 This chapter will follow the signal processing pipeline up to the point of location determination, by first introducing the fundamental principles inherent in bistatic systems. Next, methods of correlation are demonstrated, concluded by mechanisms to solve the bistatic location ambiguity.
 
@@ -56,15 +56,15 @@ Considering a constant bistatic sum \(R_{1} + R_{2}\) (see~\ref{equ:bistatic_ran
 
 \subsection{Bistatic Velocity}
 
-Apart from range, passive radar also offers ways of measuring target velocity. This measurement is based on doppler frequency shift between the reference and echo signals. Due to the bistatic geometry however, this velocity is expressed as \emph{bistatic velocity}, and is defined, in the most generic case, as rate of change of bistatic range. If it can be assumed that sender and receiver are stationary relative to each other, bistatic velocity \(V\) is defined as shown in~\ref{equ:bistatic_velocity}~\cite[p.~12]{Malanowski2019}:
+Apart from range, passive radar also offers ways of measuring target velocity. This measurement is based on Doppler frequency shift between the reference and echo signals. Due to the bistatic geometry however, this velocity is expressed as \emph{bistatic velocity}, and is defined, in the most generic case, as rate of change of bistatic range. If it can be assumed that sender and receiver are stationary relative to each other, bistatic velocity \(V\) is defined as shown in~\ref{equ:bistatic_velocity}~\cite[p.~12]{Malanowski2019}:
 
 \begin{equation}\label{equ:bistatic_velocity}
     V = -\lambda \cdot f_{\text{d}}
 \end{equation}
 
-With carrier wavelength given as \(\lambda = c / f_{c}\) and doppler frequency shift between reference and echo signals as \(f_{\text{d}}\).
+With carrier wavelength given as \(\lambda = c / f_{c}\) and Doppler frequency shift between reference and echo signals as \(f_{\text{d}}\).
 
-Note that bistatic velocity and cartesian velocity are not linearly connected, as frequency shift depends on the radial speed towards (or away from) the sender \emph{and} receiver. To maintain a constant bistatic velocity the target has to travel co-linearly to the bisector of bistatic angle \(\beta/2\) (see Figure~\ref{fig:bistatic_domain}). Otherwise doppler shift, given by~\ref{equ:bistatic_doppler_shift}, depends on cartesian target velocity \(v\), angle between bistatic bisector and direction of velocity vector \(\delta\), and bistatic angle \(\beta\)~\cite[p.~39]{Griffiths2017}.
+Note that bistatic velocity and Cartesian velocity are not linearly connected, as frequency shift depends on the radial speed towards (or away from) the sender \emph{and} receiver. To maintain a constant bistatic velocity the target has to travel co-linearly to the bisector of bistatic angle \(\beta/2\) (see Figure~\ref{fig:bistatic_domain}). Otherwise, Doppler shift, given by~\ref{equ:bistatic_doppler_shift}, depends on Cartesian target velocity \(v\), angle between bistatic bisector and direction of velocity vector \(\delta\), and bistatic angle \(\beta\)~\cite[p.~39]{Griffiths2017}.
 
 \begin{equation}\label{equ:bistatic_doppler_shift}
     f_{\text{d}} = \frac{2v}{\lambda} \cos{\left(\delta\right)}\cos{\left(\frac{\beta}{2}\right)}
@@ -72,7 +72,7 @@ Note that bistatic velocity and cartesian velocity are not linearly connected, a
 
 \section{Bistatic Range Equation}
 
-Similarly to monostatic radar in which the \emph{radar equation} plays a major role, passive radar utilizes the bistatic range equation to capture many aspects of systems design. For a noise-less system with an isotropically reflecting target the received power \(P_{r}\) can be calculated as shown in~\ref{equ:bistatic_range_equation}~\cite[p.~20]{Malanowski2019}.
+Similar to monostatic radar in which the \emph{radar equation} plays a major role, passive radar utilizes the bistatic range equation to capture many aspects of systems design. For a noise-less system with an isotropically reflecting target the received power \(P_{r}\) can be calculated as shown in~\ref{equ:bistatic_range_equation}~\cite[p.~20]{Malanowski2019}.
 
 \begin{equation}\label{equ:bistatic_range_equation}
     P_{r} = \frac{P_{t} G_{t} \sigma G_{r} \lambda^2}{{\left(4 \pi \right)}^3 R_{1}^2 R_{2}^2}
@@ -94,7 +94,7 @@ Determining the delay \(\tau\) between reference and echo signal is an essential
     \psi(t) = \int_{-\infty}^{\infty}{ x_{e}(s) x_{r}^{*}(s - t) \, d s}
 \end{equation}
 
-Where \(*\) represents the complex conjugation operator. While the integration limits here are defined as infinite, practical systems use a finite integration time or \emph{coherent processing interval}. Starting at several hundred milliseconds to several seconds~\cite[p.~134]{Malanowski2019}, this marks one of the few variables the passive radar designer can actively control. Equation~\ref{equ:cross_correlation} can also be expressed in terms of bistatic range \(R\), using the relationship \(R = \tau c\), as shown in Equation~\ref{equ:cross_correlation_range}.
+Where \(*\) represents the complex conjugation operator. While the integration limits here are defined as infinite, practical systems use a finite integration time or \emph{coherent processing interval}. Starting at several 100 milliseconds to several seconds~\cite[p.~134]{Malanowski2019}, this marks one of the few variables the passive radar designer can actively control. Equation~\ref{equ:cross_correlation} can also be expressed in terms of bistatic range \(R\), using the relationship \(R = \tau c\), as shown in Equation~\ref{equ:cross_correlation_range}.
 
 \begin{equation}\label{equ:cross_correlation_range}
     \psi(R) = \int_{-\infty}^{\infty}{ x_{e}(s) x_{r}^{*} \left( s - \frac{R}{c} \right) \, d s}
@@ -117,10 +117,10 @@ Figure~\ref{fig:signal_correlation} depicts the correlation of a simulated refer
     \subcaptionbox{\label{fig:correlation_linear}}{
         \includegraphics[width=0.47\textwidth]{correlation_linear.eps}
     }
-    \caption{Correlation of reference signal (\subref{fig:reference_signal}) and echo signal (\subref{fig:echo_signal}), in both \si{\deci\bel} (\subref{fig:correlation_db}) and linear scale (\subref{fig:correlation_linear}).}\label{fig:signal_correlation}
+    \caption{Correlation of reference signal~(\subref{fig:reference_signal}) and echo signal~(\subref{fig:echo_signal}), in both \si{\deci\bel} (\subref{fig:correlation_db}) and linear scale (\subref{fig:correlation_linear}).}\label{fig:signal_correlation}
 \end{figure}
 
-While cross-correlation alone can already be used to determine the time shift \(\tau\), and thus bistatic range, doppler shift of the signal provides information on the target bistatic velocity. It is possible to extend the cross-correlation function (\ref{equ:cross_correlation}), by a second dependant variable representing doppler shift. The result is generally referred to as the cross-\emph{ambiguity} function (CAF), shown in Equation~\ref{equ:cross_ambiguity_function}~\cite[p.~132]{Malanowski2019}.
+While cross-correlation alone can already be used to determine the time shift \(\tau\), and thus bistatic range, Doppler shift of the signal provides information on the target bistatic velocity. It is possible to extend the cross-correlation function (\ref{equ:cross_correlation}), by a second dependent variable representing Doppler shift. The result is generally referred to as the cross-\emph{ambiguity} function (CAF), shown in Equation~\ref{equ:cross_ambiguity_function}~\cite[p.~132]{Malanowski2019}.
 
 \begin{equation}\label{equ:cross_ambiguity_function}
     \psi(t, f_{d}) = \int_{-T/2}^{T/2} {x_{e}(s) \cdot x_{r}^{*}} \left( s - t \right)\mathrm{e}^{\mathrm{j} 2 \pi f_{d} s} \, d s
@@ -132,9 +132,9 @@ Note that this equation already incorporates a finite coherent processing interv
     \psi(m,k) = \sum_{n = 0}^{N - 1}{x_{e}(n) \cdot x_{r}^{*}(n - m) \mathrm{e}^{-\mathrm{j} \frac{2 \pi}{N} k n}}
 \end{equation}
 
-Here, bistatic velocity is expressed in terms of an integer number of sample delays \(m\). Similarly, bistatic velocity is measured in terms of an integer number of frequency bins \(k\), that the two signals are separated by doppler shift.
+Here, bistatic velocity is expressed in terms of an integer number of sample delays \(m\). Similarly, bistatic velocity is measured in terms of an integer number of frequency bins \(k\), that the two signals are separated by Doppler shift.
 
-This concludes the necessary theoretical foundations to determine bistatic range and velocity. Practical systems employ different methods to efficiently implement these ideas in digital signal processors. One of which, described by~\cite[p.~138]{Malanowski2019}, bears striking similarities to conventional active radar matched filtering and doppler processing. This method is generally referred to as \emph{the batch algorithm}. It's core principle is presented in Derivation~\ref{equ:batch_algorithm}.
+This concludes the necessary theoretical foundations to determine bistatic range and velocity. Practical systems employ different methods to efficiently implement these ideas in digital signal processors. One of which, described by~\cite[p.~138]{Malanowski2019}, bears striking similarities to conventional active radar matched filtering and Doppler processing. This method is generally referred to as \emph{the batch algorithm}. It's core principle is presented in Derivation~\ref{equ:batch_algorithm}.
 
 \begin{equation}\label{equ:batch_algorithm}
     \begin{split}
@@ -146,9 +146,9 @@ This concludes the necessary theoretical foundations to determine bistatic range
     \end{split}
 \end{equation}
 
-Here, samples are \emph{batched} into \(Q\) number of blocks; the \emph{slow time} domain. The number of samples per block is given by \(P\). Within a block the term \emph{fast time} is used. Within fast time it is assumed that doppler shift is negligible, allowing the phase shift term to be simplified and dragged outside the inner sum over \(P - 1\). This happens in line two of~\ref{equ:batch_algorithm}. Realizing that \(\sum_{n = 0}^{N - 1}{ x_{n} \mathrm{e}^{-\mathrm{j} \frac{2 \pi}{N} k n} } \equiv \operatorname{FFT}{ \left\{ \right\} }, k = 0, \dots, N - 1 \), the outer sum can be substituted by a fast fourier transformation (\(\operatorname{FFT}\)). This leads to the expression in line three of~\ref{equ:batch_algorithm}. Finally the inner sum over \(P - 1\) is expressed using the cross-correlation operator \(\operatorname{COR}\).
+Here, samples are \emph{batched} into \(Q\) number of blocks; the \emph{slow time} domain. The number of samples per block is given by \(P\). Within a block the term \emph{fast time} is used. Within fast time it is assumed that Doppler shift is negligible, allowing the phase shift term to be simplified and dragged outside the inner sum over \(P - 1\). This happens in line two of~\ref{equ:batch_algorithm}. Realizing that \(\sum_{n = 0}^{N - 1}{ x_{n} \mathrm{e}^{-\mathrm{j} \frac{2 \pi}{N} k n} } \equiv \operatorname{FFT}{ \left\{ \right\} }, k = 0, \dots, N - 1 \), the outer sum can be substituted by a Fast Fourier Transformation (\(\operatorname{FFT}\)). This leads to the expression in line three of~\ref{equ:batch_algorithm}. Finally the inner sum over \(P - 1\) is expressed using the cross-correlation operator \(\operatorname{COR}\).
 
-Output of the cross-ambiguity function is a range-doppler type map, in which \emph{range} and \emph{doppler} refer to bistatic range and velocity.
+Output of the cross-ambiguity function is a Range-Doppler type map, in which \emph{Range} and \emph{Doppler} refer to bistatic range and velocity.
 
 \section{Further Processing}
 
@@ -159,4 +159,4 @@ After producing a map of bistatic range and velocity, and the application of app
     \item Using the intersections of multiple ellipsoids, produced by different Rx-Tx pairs, target ambiguity can be progressively reduced~\cite[pp.~133-134]{Griffiths2017}. Each additional Rx-Tx pair deceases the number of \emph{ghost} targets, that result from multiple intersections of the ellipsoids. This multistatic approach requires, however, that the target can be \emph{seen} by more than one Rx-Tx pair.
 \end{enumerate}
 
-Once position of an echo source is reliably determined, further tracking algorithms are used to decern object affiliation. A single object, such as a big airliner, might produce multiple alarms. These have to be distinguished from other close by objects. To supplement this task, complex kinetic models may be applied.
+Once position of an echo source is reliably determined, further tracking algorithms are used to discern object affiliation. A single object, such as a big airliner, might produce multiple alarms. These have to be distinguished from other close by objects. To supplement this task, complex kinetic models may be applied.
