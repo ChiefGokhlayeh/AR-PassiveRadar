@@ -21,12 +21,12 @@ With \(R_{1}\) representing the illuminator-target distance, \(R_{2}\) sensor-ta
 
 \begin{figure}
     \centering
-    \subcaptionbox{\label{fig:bistatic_domain}}[0.44\textwidth]{
+    \subcaptionbox{\label{fig:bistatic_domain}}[\textwidth]{
         \begin{tikzpicture}[x=1cm,y=1cm]
             \input{graphs/bistatic-geometry.tikz}
         \end{tikzpicture}
     }
-    \subcaptionbox{\label{fig:bistatic_range}}[0.55\textwidth]{
+    \subcaptionbox{\label{fig:bistatic_range}}[\textwidth]{
         \begin{tikzpicture}[x=1cm,y=1cm]
             \input{graphs/bistatic-range.tikz}
         \end{tikzpicture}
@@ -64,7 +64,7 @@ Appart from range, passive radar also offers ways of measuring target velocity. 
 
 With carrier wavelength given as \(\lambda=\frac{c}{f_{c}}\) and doppler frequency shift between reference and echo signals as \(f_{\text{d}}\).
 
-Note that bistatic velocity and cartesian velocity are not linearly connected, as frequency shift depends on the radial speed towards (or away from) the sender \emph{and} receiver. To maintain a constant bistatic velocity the target has to travel co-linearly to the bisector of bistatic angle \(\beta/2\) (see figure~\ref{fig:bistatic_domain}). Otherwise doppler shift, given by~\ref{equ:bistatic_doppler_shift}, depends on cartesian velocity \(v\), cartesian direction of travel \(\delta\), and bistatic angle \(\beta\).~\cite[p.~39]{Griffiths2017}
+Note that bistatic velocity and cartesian velocity are not linearly connected, as frequency shift depends on the radial speed towards (or away from) the sender \emph{and} receiver. To maintain a constant bistatic velocity the target has to travel co-linearly to the bisector of bistatic angle \(\beta/2\) (see Figure~\ref{fig:bistatic_domain}). Otherwise doppler shift, given by~\ref{equ:bistatic_doppler_shift}, depends on cartesian target velocity \(v\), angle between bistatic bisector and direction of velocity vector \(\delta\), and bistatic angle \(\beta\)~\cite[p.~39]{Griffiths2017}.
 
 \begin{equation}\label{equ:bistatic_doppler_shift}
     f_{\text{d}} = \frac{2v}{\lambda} \cos{\left(\delta\right)}\cos{\left(\frac{\beta}{2}\right)}

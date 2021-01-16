@@ -1,7 +1,9 @@
 % !TeX root = ../main.tex
-\coordinate (rx1_coord) at (-2,0);
-\coordinate (tx1_coord) at (2,0);
-\coordinate (target_coord) at (1,1.25);
+\def\F{5}
+
+\coordinate (rx1_coord) at (-\F,0);
+\coordinate (tx1_coord) at (\F,0);
+\coordinate (target_coord) at (3,3.5);
 
 \draw [dotted,color=gray]
 let

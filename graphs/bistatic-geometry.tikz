@@ -1,26 +1,48 @@
 % !TeX root = ../main.tex
-\coordinate (rx1_coord) at (-2,0);
-\coordinate (tx1_coord) at (2,0);
-\coordinate (target_coord) at (1,1.25);
+\def\F{5}
+
+\coordinate (rx1_coord) at (-\F,0);
+\coordinate (tx1_coord) at (\F,0);
+\coordinate (target_coord) at (3,3.5);
+\coordinate (v_vec) at (3,0);
 
 \node at (tx1_coord) [draw,fill=white] (tx1) {Tx};
 
 \node at (rx1_coord) [draw,fill=white] (rx) {Rx};
 
 \begin{scope}
-    \clip
+    \clip let \p1=(target_coord) in (\x1-2cm,\y1+2cm) rectangle (\x1+2cm,\y1-2cm);
+    \draw (0,0)
     let
-    \p1=(target_coord),
+    \p1=($(target_coord)-(tx1_coord)$),
+    \p2=($(target_coord)-(rx1_coord)$),
+    \p3=(tx1_coord),
+    \n1={scalar((veclen(\x1,\y1) + veclen(\x2,\y2))*1pt/1cm)},
+    \n2={sqrt(pow(\n1/2, 2))},
+    \n3={sqrt(pow(\n1/2, 2) - pow(\F, 2))}
     in
-    (\x1 - 0.75cm,\y1 + 0.75cm) rectangle +(1.5,-1.5);
-    \draw [color=gray]
-    (2.42539052968,0) arc [start angle=0,end angle=360,x radius=2.42539052968,y radius=1.37204927807];
+    circle [x radius=\n2,y radius=\n3,draw=gray];
 \end{scope}
 
-\node at (target_coord) [label={[fill=white]above:Target}] (target) {\faPlane};
+\begin{scope}
+    \clip let \p1=(target_coord) in (\x1-2cm,\y1+1cm) rectangle (\x1+2cm,\y1-2cm);
 
-\draw [->,color=red] (tx1) -- node [black,midway,right,align=center] {$R_1$} (target);
-\draw [->,color=red] (target) -- node [black,midway,left=4pt,align=center] {$R_2$} (rx);
+    \draw [dotted] let
+    \p1 = ($(target_coord)!1cm!(rx1_coord)$),
+    \p2 = ($(target_coord)!1cm!(tx1_coord)$),
+    \p3 = ($(\p1) + (\p2) - (target_coord)$)
+    in
+    ($(target_coord)!4!(\p3)$) coordinate (A) -- ($(\p3)!1!(target_coord)$);
+
+    \path let \p1=($(target_coord)+(v_vec)$) in
+    (rx1_coord) -- (target_coord) coordinate (B) -- (\p1) coordinate (C) pic [draw,angle radius=1.6cm,angle eccentricity=0.8,"$\delta$"] {angle};
+\end{scope}
+
+\draw let \p1=($(target_coord)+(v_vec)$) in [->,color=cyan] (target_coord) -- node [black,midway,above,align=center] {$v$} (\p1);
+\node at (target_coord) [label={above:Target}] (target) {\faPlane};
+
+\draw [->,color=red] (tx1) -- node [black,midway,above right,align=center] {$R_1$} (target);
+\draw [->,color=red] (target) -- node [black,midway,above left,align=center] {$R_2$} (rx);
 \draw [->,color=blue] (tx1) -- node [black,midway,below,align=center] {$R_{\text{b}}$} (rx);
 
-\pic [draw,angle radius=1cm,"$\beta$"] {angle=rx1_coord--target_coord--tx1_coord};
+\pic [draw,angle radius=0.8cm,angle eccentricity=0.8,"$\beta$"] {angle=rx1_coord--target_coord--tx1_coord};
