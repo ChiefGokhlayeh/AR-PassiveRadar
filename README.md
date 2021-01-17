@@ -1,6 +1,8 @@
-# Automotive Radar Course - Paper: Passive Radar
+# Automotive Radar Course - Paper: Passive Radar [![Build LaTeX document](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Build%20LaTeX%20document/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Build+LaTeX+document%22) [![Lint LaTeX document](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Lint%20LaTeX%20document/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Lint+LaTeX+document%22) [![pre-commit](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/pre-commit/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3Apre-commit)
 
 Seminar paper on the topic of passive radar systems, describing their function and use-cases, for the Automotive Radar course at the University of Esslingen.
+
+[![Download PDF](https://shields.io/badge/-Download%20PDF-blue)](https://nightly.link/ChiefGokhlayeh/AR-PassiveRadar/workflows/build-latex-document/main)
 
 ## Lizenz / License ⚖
 
