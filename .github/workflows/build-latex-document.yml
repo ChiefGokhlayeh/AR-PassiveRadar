@@ -16,8 +16,8 @@ jobs:
                   docker-image: gokhlayeh/latex
                   build-entrypoint: latexmk
                   build-files: main.tex
-                  build-args: -pdf -interaction=nonstopmode -file-line-error -outdir=build
+                  build-args: -pdf -interaction=batchmode -output-directory=build
             - uses: actions/upload-artifact@v2
               with:
-                  name: Internship Report
+                  name: Passive Radar Paper
                   path: build/main.pdf
