@@ -1,4 +1,3 @@
-% !TeX root = ../main.tex
 \coordinate (rx1_coord) at (-2,0);
 \coordinate (tx1_coord) at (2,0);
 \coordinate (target_coord) at (1.25,3);

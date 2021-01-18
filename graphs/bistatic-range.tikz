@@ -1,4 +1,3 @@
-% !TeX root = ../main.tex
 \def\F{5}
 
 \coordinate (rx1_coord) at (-\F,0);

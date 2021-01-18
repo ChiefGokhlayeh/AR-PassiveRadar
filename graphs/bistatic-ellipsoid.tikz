@@ -1,4 +1,3 @@
-% !TeX root = ../main.tex
 \def\R{25}
 \def\F{10}
 \def\a{sqrt((\R/2)^2)}
