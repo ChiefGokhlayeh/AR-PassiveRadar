@@ -11,12 +11,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: satackey/action-latex@v2
+            - uses: ./.github/actions/latex
               with:
-                  docker-image: gokhlayeh/latex
-                  build-entrypoint: latexmk
-                  build-files: report.tex
-                  build-args: -pdf -interaction=batchmode -output-directory=build
+                  args: latexmk -pdf -interaction=batchmode -output-directory="$(pwd)/build" report.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Paper
@@ -25,12 +22,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: satackey/action-latex@v2
+            - uses: ./.github/actions/latex
               with:
-                  docker-image: gokhlayeh/latex
-                  build-entrypoint: latexmk
-                  build-files: beamer.tex
-                  build-args: -pdf -interaction=batchmode -output-directory=build
+                  args: latexmk -pdf -interaction=batchmode -output-directory="$(pwd)/build" beamer.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Presentation
