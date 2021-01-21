@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: ./.github/actions/latex
               with:
-                  args: latexmk -pdf -interaction=batchmode -output-directory="$(pwd)/build" report.tex
+                  args: latexmk -pdf -interaction=batchmode -output-directory=build report.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Paper
@@ -24,7 +24,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: ./.github/actions/latex
               with:
-                  args: latexmk -pdf -interaction=batchmode -output-directory="$(pwd)/build" beamer.tex
+                  args: latexmk -pdf -interaction=batchmode -output-directory=build beamer.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Presentation
