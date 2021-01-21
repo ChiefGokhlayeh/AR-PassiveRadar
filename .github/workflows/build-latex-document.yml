@@ -7,7 +7,7 @@ on:
         branches: [main]
 
 jobs:
-    build_latex:
+    build_report:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -21,3 +21,17 @@ jobs:
               with:
                   name: Passive Radar Paper
                   path: build/report.pdf
+    build_beamer:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: satackey/action-latex@v2
+              with:
+                  docker-image: gokhlayeh/latex
+                  build-entrypoint: latexmk
+                  build-files: beamer.tex
+                  build-args: -pdf -interaction=batchmode -output-directory=build
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: Passive Radar Presentation
+                  path: build/beamer.pdf

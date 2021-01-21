@@ -1,13 +1,19 @@
-\coordinate (rx1_coord) at (-2,0);
-\coordinate (tx1_coord) at (2,0);
-\coordinate (target_coord) at (1.25,3);
+\newcommand\drawTopology[4]{
+    \coordinate (rx1_coord) at (-2,0);
+    \coordinate (tx1_coord) at (2,0);
+    \coordinate (target_coord) at (1.25,3);
 
-\node at (tx1_coord) [draw,fill=white] (tx1) {Illuminator};
+    \node at (tx1_coord) [text width=0.5cm,text height=1cm] (tx) {};
+    \node at (tx1_coord) [antenna,scale=0.5,below=-0.5cm] {};
+    \path let \p1=(tx.north west), \p2=(tx.south east), \p3=(tx) in [label={below:Receiver}] ({\x3-0.4cm},\y1) rectangle ({\x3+0.4cm},\y2) node [below] at (\x3,\y2) {Illuminator};
 
-\node at (rx1_coord) [draw,fill=white] (rx) {Receiver};
+    \node at (rx1_coord) [text width=0.5cm,text height=0.75cm] (rx) {};
+    \node at (rx1_coord) [antenna,scale=0.5,below=-0.5cm] {};
+    \path let \p1=(tx.north west), \p2=(tx.south east), \p3=(rx) in [label={below:Receiver}] ({\x3-0.4cm},\y1) rectangle ({\x3+0.4cm},\y2) node [below] at (\x3,\y2) {Receiver};
 
-\node at (target_coord) [label={[fill=white]above:Target}] (target) {\faPlane};
+    \node at (target_coord) [label={above:Target}] (target) {\Huge\faPlane};
 
-\draw [->,color=red] (tx1) -- (target);
-\draw [->,color=red] (target) -- (rx);
-\draw [->,color=blue] (tx1) -- (rx);
+    \draw [visible on={#1},decorate,decoration={expanding waves,angle=35,segment length=4pt},blue!60] (tx) -- (target);
+    \draw [visible on={#2},decorate,decoration={expanding waves,angle=25,segment length=4pt},red!60] (target) -- node [#4] {\small\contourlength{2pt}\contour{#3}{Echo}} (rx);
+    \draw [visible on={#1},decorate,decoration={expanding waves,angle=15,segment length=4pt},blue!60] (tx) -- node [#4] {\small\contourlength{2pt}\contour{#3}{Reference}} (rx);
+}

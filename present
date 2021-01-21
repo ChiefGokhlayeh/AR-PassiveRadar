@@ -1,0 +1,3 @@
+#!/bin/bash
+file="${1:-build/beamer.pdf}"
+impressive --fake-fullscreen -t Crossfade -T 100 "$file"

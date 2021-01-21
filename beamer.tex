@@ -1,0 +1,75 @@
+\documentclass[ngerman,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage[binary-units=true]{siunitx}
+\usepackage[german=quotes]{csquotes}
+\usepackage[nooldvoltagedirection]{circuitikz}
+\usepackage[outline]{contour}
+\usepackage[shorthands=off,ngerman]{babel}
+\usepackage[style=iso-numeric,minnames=1,maxnames=3,giveninits,uniquename=init]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{datetime}
+\usepackage{environ}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{spreadtab}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\addbibresource{references.bib}
+\captionsetup{justification=centering,font=footnotesize}
+\contourlength{0.7pt}
+\graphicspath{{images/}}
+\pgfplotsset{width=9cm,compat=newest}
+\setlength{\bibhang}{0cm} % left-align bibliography
+\sisetup{locale = DE}
+\tikzset{>=Stealth}
+\usetheme{metropolis}
+\usetikzlibrary{angles,arrows.meta,,calc,math,positioning,shadows,trees,quotes}
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\title{Passive Radar}
+\subtitle{Grundlagen der Signalverarbeitung}
+\date{Jannuar 2021}
+\author{Andreas Baulig}
+\institute{Hochschule Esslingen}
+\logo{\includegraphics[height=1cm]{hs-esslingen_logo.png}}
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+{
+  \nologo{}
+  \begin{frame}[allowframebreaks]
+    \frametitle{Agenda}
+    \tableofcontents
+  \end{frame}
+
+  \include{beamer/slides/introduction}
+  \include{beamer/slides/history}
+  \include{beamer/slides/bistatic_principle}
+
+  \begin{frame}[allowframebreaks]
+    \frametitle{Quellen}
+    \printbibliography
+  \end{frame}
+}
+
+\end{document}

@@ -1,0 +1,88 @@
+% !TeX root = ../../beamer.tex
+\section{Was ist Passiv Radar}
+
+\begin{frame}
+    \frametitle{Was ist Radar}
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item \textbf{RA}dio \textbf{D}etection and \textbf{R}anging
+                \item Messung von \textbf{Entfernung} und \textbf{Geschwindigkeit}
+                      \begin{itemize}
+                          \item<3-> Zeitversatz \(\tau\)
+                          \item<3-> Frequenzversatz \(f_{d}\)
+                      \end{itemize}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                    \input{graphs/conventional-radar.tikz}
+                \end{tikzpicture}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Was heißt Passiv?}
+
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item Beleuchtung durch Sender in der \textbf{Umgebung}
+                \item Operator hat \textbf{keine Kontrolle} über Beleuchter
+                \item Beleuchter und Empfänger sind \textbf{räumlich getrennt}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \resizebox{\linewidth}{!}{
+                    \begin{tikzpicture}
+                        \input{graphs/topology.tikz}
+                        \drawTopology{<2->}{<3->}{bg}{fg}
+                    \end{tikzpicture}
+                }
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beleuchtungsquellen (Illuminators of Opportunity)}
+
+    \begin{columns}
+        \begin{column}{0.2\textwidth}
+            \begin{figure}
+                \raggedleft{}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                            ymode=log,
+                            height=6cm,
+                            width=2cm,
+                            hide x axis,
+                            axis y line=left,
+                            ymin=1,
+                            ymax=100,
+                            ylabel={Entfernung [\si{\kilo\metre}]},
+                        ]
+                        \addplot [draw=none] {1};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.8\textwidth}
+            \begin{itemize}
+                \item FM-Radio
+                \item DVB-T (Digitales Fernsehen)
+                \item DAB (Digitales Radio)
+                \item LTE
+                \item GSM
+                \item WiFi
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
