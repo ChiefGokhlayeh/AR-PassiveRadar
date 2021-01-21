@@ -27,5 +27,5 @@ jobs:
                   args: latexmk -pdf -interaction=batchmode -output-directory=build beamer.tex
             - uses: actions/upload-artifact@v2
               with:
-                  name: Passive Radar Presentation
+                  name: Passive Radar Paper
                   path: build/beamer.pdf
