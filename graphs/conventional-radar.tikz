@@ -5,6 +5,6 @@
 
 \node [label={above:Target}] (target) at (3,3) {\Huge\faPlane};
 
-\draw [visible on=<1>,decorate,decoration={expanding waves,angle=6,segment length=3pt},blue!60] (radar) -- node [fg] {\small\contourlength{2pt}\contour{bg}{Pulse}} (target);
+\draw [visible on=<2>,decorate,decoration={expanding waves,angle=6,segment length=3pt},blue!60] (radar) -- node [fg] {\small\contourlength{2pt}\contour{bg}{Pulse}} (target);
 
-\draw [visible on=<2->,decorate,decoration={expanding waves,angle=60,segment length=6pt},red!60] (target) -- node [fg] {\small\contourlength{2pt}\contour{bg}{Echo}} (radar);
+\draw [visible on=<3->,decorate,decoration={expanding waves,angle=60,segment length=6pt},red!60] (target) -- node [fg] {\small\contourlength{2pt}\contour{bg}{Echo}} (radar);
