@@ -1,0 +1,30 @@
+
+\def\F{5}
+\coordinate (rx1_coord) at (-\F,0);
+\coordinate (tx1_coord) at (\F,0);
+\coordinate (target_coord) at (2,3.5);
+\coordinate (pencil) at (0.1,0.6);
+
+\draw [visible on=<3->] (0,0)
+let
+\p1=($(target_coord)-(tx1_coord)$),
+\p2=($(target_coord)-(rx1_coord)$),
+\p3=(tx1_coord),
+\n1={scalar((veclen(\x1,\y1) + veclen(\x2,\y2))*1pt/1cm)},
+\n2={sqrt(pow(\n1/2, 2))},
+\n3={sqrt(pow(\n1/2, 2) - pow(\F, 2))}
+in
+circle [x radius=\n2,y radius=\n3,draw=gray];
+
+\draw [dotted] (rx1_coord) node [cross out,draw,solid] {} -- (0,0) node {\contour{bg}{$R_{\text{b}}$}} -- (tx1_coord) node [cross out,draw,solid] {};
+
+\draw [visible on=<2->,dash dot] (rx1_coord) -- (target_coord) node [midway] {\contour{bg}{$R_{2}$}} -- (tx1_coord) node [midway] {\contour{bg}{$R_{1}$}};
+
+\draw [visible on=<2->,<-] (target_coord) -- ++(pencil);
+
+\node [visible on=<4->] at (0,-1.5) {%
+    \(\begin{aligned}
+            & R_{1} + R_{2}                & = \text{const.} & \dots \text{bistatische Summe}      \\
+        R = & R_{1} + R_{2} - R_{\text{b}} & = \text{const.} & \dots \text{bistatische Entfernung} \\
+    \end{aligned}
+    \)};

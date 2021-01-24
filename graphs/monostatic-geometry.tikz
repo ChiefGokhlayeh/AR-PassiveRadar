@@ -1,0 +1,16 @@
+
+\coordinate (horizon) at (3,0);
+
+\begin{scope}
+    \clip (0,0) rectangle ({sqrt(2*pow(3,2))},{sqrt(2*pow(3,2))});
+    \draw (0,0) circle [radius={sqrt(2*pow(3,2))}];
+\end{scope}
+
+\node [label={below:Radar}] (radar) at (0,0) {\Huge\faSatelliteDish};
+
+\node [label={above:Target}] (target) at (3,3) {\Huge\faPlane};
+
+\draw [<->,red] (radar) -- (target);
+\draw [dotted] (radar) -- (horizon);
+
+\pic [draw,angle radius=1.5cm,angle eccentricity=0.8,"$\phi$"] {angle=horizon--radar--target};

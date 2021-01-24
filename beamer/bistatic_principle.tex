@@ -6,23 +6,11 @@
 
     \begin{figure}
         \centering
-        \begin{tikzpicture}
-            \coordinate (horizon) at (3,0);
-
-            \begin{scope}
-                \clip (0,0) rectangle ({sqrt(2*pow(3,2))},{sqrt(2*pow(3,2))});
-                \draw (0,0) circle [radius={sqrt(2*pow(3,2))}];
-            \end{scope}
-
-            \node [label={below:Radar}] (radar) at (0,0) {\Huge\faSatelliteDish};
-
-            \node [label={above:Target}] (target) at (3,3) {\Huge\faPlane};
-
-            \draw [<->,red] (radar) -- (target);
-            \draw [dotted] (radar) -- (horizon);
-
-            \pic [draw,angle radius=1.5cm,angle eccentricity=0.8,"$\phi$"] {angle=horizon--radar--target};
-        \end{tikzpicture}
+        \begin{adjustbox}{max width=\textwidth,totalheight=\textheight-5\baselineskip}
+            \begin{tikzpicture}
+                \input{graphs/monostatic-geometry.tikz}
+            \end{tikzpicture}
+        \end{adjustbox}
         \caption{Monostatische Geometrie bei konventionellem Radar.}
     \end{figure}
 \end{frame}
@@ -32,12 +20,40 @@
 
     \begin{figure}
         \centering
-        \resizebox{0.7\textwidth}{!}{
+        \begin{adjustbox}{max width=\textwidth,totalheight=\textheight-6\baselineskip}
             \begin{tikzpicture}
                 \input{graphs/bistatic-geometry.tikz}
                 \drawBistaticGeometry{bg}
             \end{tikzpicture}
-        }
+        \end{adjustbox}
         \caption{Baseline \(R_{\text{b}}\), Entfernung: Sender/Ziel \(R_{1}\), Entfernung: Ziel/Empfänger \(R_{2}\), Bistatischer Winkel \(\beta\), Bewegungsrichtung Ziel \(\delta\), Geschwindigkeitsvektor \(v\).}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bistatische Ellipse}
+
+    \begin{figure}
+        \centering
+        \begin{adjustbox}{max width=\textwidth,totalheight=\textheight-5\baselineskip}
+            \begin{tikzpicture}
+                \input{graphs/bistatic-ellipse.tikz}
+            \end{tikzpicture}
+        \end{adjustbox}
+        \caption{Zeichenregeln einer bistatischen Ellipse.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bistatische Ellipsoid}
+
+    \begin{figure}
+        \centering
+        \begin{adjustbox}{max width=\textwidth,totalheight=\textheight-6\baselineskip}
+            \begin{tikzpicture}
+                \input{graphs/bistatic-ellipsoid.tikz}
+            \end{tikzpicture}
+        \end{adjustbox}
+        \caption{Exemplarischer bistatischer Ellipsoid für \(R = \SI{5}{\kilo\metre}\) and a baseline of \(R_{\text{b}} = \SI{20}{\kilo\metre}\). Daraus resultiert eine bistatische Summe von \(R_{\text{S}} = \SI{25}{\kilo\metre}\).}
     \end{figure}
 \end{frame}
