@@ -1,0 +1,20 @@
+name: Build Presentation
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build_beamer:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: ./.github/actions/latex
+              with:
+                  args: latexmk -pdf -interaction=batchmode -output-directory=build beamer.tex
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: Passive Radar Presentation
+                  path: build/beamer.pdf

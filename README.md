@@ -1,8 +1,11 @@
-# Automotive Radar Course - Paper: Passive Radar [![Build LaTeX document](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Build%20LaTeX%20document/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Build+LaTeX+document%22) [![Lint LaTeX document](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Lint%20LaTeX%20document/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Lint+LaTeX+document%22) [![pre-commit](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/pre-commit/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3Apre-commit)
+# Automotive Radar Course - Paper: Passive Radar
+
+[![Build Report](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Build%20Report/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Build+Report%22) [![Build Presentation](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Build%20Presentation/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Build+Presentation%22) [![Lint LaTeX document](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/Lint%20LaTeX%20document/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3A%22Lint+LaTeX+document%22) [![pre-commit](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/workflows/pre-commit/badge.svg)](https://github.com/ChiefGokhlayeh/AR-PassiveRadar/actions?query=workflow%3Apre-commit)
 
 Seminar paper on the topic of passive radar systems, describing their function and use-cases, for the Automotive Radar course at the University of Esslingen.
 
-[![Download PDF](https://shields.io/badge/-Download%20PDF-blue)](https://nightly.link/ChiefGokhlayeh/AR-PassiveRadar/workflows/build-latex-document/main)
+[![Download Report](https://shields.io/badge/-Download%20Report-blue)](https://nightly.link/ChiefGokhlayeh/AR-PassiveRadar/workflows/build-report/main)
+[![Download Presentation](https://shields.io/badge/-Download%20Presentation-blue)](https://nightly.link/ChiefGokhlayeh/AR-PassiveRadar/workflows/build-beamer/main)
 
 ## Lizenz / License ⚖
 
