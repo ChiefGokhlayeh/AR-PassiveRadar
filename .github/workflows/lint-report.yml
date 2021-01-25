@@ -1,4 +1,4 @@
-name: Lint LaTeX document
+name: Lint Report
 
 on:
     push:
