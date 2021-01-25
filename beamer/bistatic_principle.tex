@@ -57,3 +57,60 @@
         \caption{Exemplarischer bistatischer Ellipsoid für \(R = \SI{5}{\kilo\metre}\) and a baseline of \(R_{\text{b}} = \SI{20}{\kilo\metre}\). Daraus resultiert eine bistatische Summe von \(R_{\text{S}} = \SI{25}{\kilo\metre}\).}
     \end{figure}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Bistatische Geschwindigkeit}
+
+    Notwendigkeit der Geschwindigkeitsbestimmung:
+    \begin{itemize}
+        \item \textbf{Clutter-Filtering} (Terrain, Bäume, Gebäude, Vögel, etc.)
+        \item Erlaubt \textbf{Differenzierung} verschiedener Objekttypen
+    \end{itemize}
+
+    Allgemeine Definition der \textbf{bistatischen Geschwindigkeit}:
+    \begin{itemize}
+        \item Die augenblickliche Veränderung der bistatischen Entfernung in der Zeit.
+              \begin{equation}
+                  V = \frac{d}{d t} R
+              \end{equation}
+    \end{itemize}
+
+\end{frame}
+
+\note[itemize]{
+    \item Bistatische Geschwindigkeit nicht linear proportional zu kartesischer Geschwindigkeit!!!
+}
+
+\begin{frame}
+    \frametitle{Bistatische Geschwindigkeit}
+
+    Wesentlich Nützlicher:
+    \begin{itemize}
+        \item Messung aus Dopplershift (\(\lambda\) \dots Wellenlänge, \(f_{d}\) \dots Dopplerfrequenz)
+              \begin{equation}
+                  V = - \lambda f_{d}
+              \end{equation}
+        \item Negatives Vorzeichen, da Geschwindigkeit \textbf{positiv} wenn Objekt sich \textbf{weg bewegt}.
+    \end{itemize}
+
+\end{frame}
+
+\note[itemize]{
+    \item \(f_{d} = f - f_{0}\)
+    \item D.h.: Objekt bewegt sich weg -> Rotverschiebung -> tiefere Frequenz am Empfänger -> \(f_{d} < 0\)
+    \item Andersherum: Objekt bewegt sich zu uns -> Blauverschiebung -> höhere Frequenz am Empfänger -> \(f_{d} > 0\)
+}
+
+\begin{frame}
+    \frametitle{Relation: Bistatische Geschw.\ vs.\ Kartesische Geschw.}
+
+    \begin{figure}
+        \begin{adjustbox}{max width=\textwidth,totalheight=\textheight-5\baselineskip}
+            \begin{tikzpicture}
+                \input{graphs/bistatic-velocity.tikz}
+            \end{tikzpicture}
+        \end{adjustbox}
+        \caption{Vektoren in Richtung maximaler bistatischer Geschwindigkeit.}
+    \end{figure}
+
+\end{frame}

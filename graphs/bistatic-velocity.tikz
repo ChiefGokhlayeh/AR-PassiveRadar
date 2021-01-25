@@ -1,0 +1,53 @@
+
+\def\F{5}
+\coordinate (l_foci_coord) at (-\F,0);
+\coordinate (r_foci_coord) at (\F,0);
+\coordinate (point_on_ellipse_coord) at (6,0);
+
+\draw (0,0)
+let
+\p1=($(point_on_ellipse_coord)-(r_foci_coord)$),
+\p2=($(point_on_ellipse_coord)-(l_foci_coord)$),
+\n1={scalar((veclen(\x1,\y1) + veclen(\x2,\y2))*1pt/1cm)},
+\n2={\n1/2},
+\n3={sqrt(pow(\n1/2, 2) - pow(\F, 2))}
+in
+circle [x radius=\n2,y radius=\n3,draw=gray];
+
+\draw [dotted] (l_foci_coord) node [cross out,draw,solid] {} -- (0,0) node {\contour{bg}{$R_{\text{b}}$}} -- (r_foci_coord) node [cross out,draw,solid] {};
+
+\foreach \u in {-5.5,-5,...,5.5} {
+        \draw [->,blue] let
+        \p1=($(point_on_ellipse_coord)-(r_foci_coord)$),
+        \p2=($(point_on_ellipse_coord)-(l_foci_coord)$),
+        \n1={scalar((veclen(\x1,\y1) + veclen(\x2,\y2))*1pt/1cm)},
+        \p3=(\u,{sqrt( (pow(2 * \F / \n1, 2) - 1) * pow(\u, 2) + pow(\n1 / 2, 2) - pow(\F, 2) )}),
+        \p4=($(\p3)!1cm!(l_foci_coord)$),
+        \p5=($(\p3)!1cm!(r_foci_coord)$),
+        \p6=($(\p4) + (\p5) - (\p3)$),
+        in
+        (\p3) -- ($(\p6)!1.5!(\p3)$);
+    }
+
+\foreach \u in {-6,6} {
+        \draw [->,blue] let
+        \p1=(\u,0),
+        \p2=($(\p1)!1cm!(l_foci_coord)$),
+        \p3=($(\p1)!1cm!(r_foci_coord)$),
+        \p4=($(\p2) + (\p3) - (\p1)$),
+        in
+        (\p1) -- ($(\p4)!1.5!(\p1)$);
+    }
+
+\foreach \u in {-5.5,-5,...,5.5} {
+        \draw [->,blue] let
+        \p1=($(point_on_ellipse_coord)-(r_foci_coord)$),
+        \p2=($(point_on_ellipse_coord)-(l_foci_coord)$),
+        \n1={scalar((veclen(\x1,\y1) + veclen(\x2,\y2))*1pt/1cm)},
+        \p3=(\u,{-sqrt( (pow(2 * \F / \n1, 2) - 1) * pow(\u, 2) + pow(\n1 / 2, 2) - pow(\F, 2) )}),
+        \p4=($(\p3)!1cm!(l_foci_coord)$),
+        \p5=($(\p3)!1cm!(r_foci_coord)$),
+        \p6=($(\p4) + (\p5) - (\p3)$),
+        in
+        (\p3) -- ($(\p6)!1.5!(\p3)$);
+    }
