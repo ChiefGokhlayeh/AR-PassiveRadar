@@ -13,19 +13,19 @@ jobs:
             - uses: actions/checkout@v2
             - uses: ./.github/actions/latex
               with:
-                  args: latexmk -pdf -interaction=batchmode -output-directory=build report.tex
+                  args: latexmk -pdf -interaction=batchmode -output-directory=build-report report.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Paper
-                  path: build/report.pdf
+                  path: build-report/report.pdf
     build_beamer:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - uses: ./.github/actions/latex
               with:
-                  args: latexmk -pdf -interaction=batchmode -output-directory=build beamer.tex
+                  args: latexmk -pdf -interaction=batchmode -output-directory=build-beamer beamer.tex
             - uses: actions/upload-artifact@v2
               with:
                   name: Passive Radar Paper
-                  path: build/beamer.pdf
+                  path: build-beamer/beamer.pdf
