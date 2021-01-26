@@ -1,0 +1,45 @@
+% !TeX root = ../beamer.tex
+\section{Zusammenfassung}
+
+\begin{frame}
+    \frametitle{Zusammenfassung}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+                \item Begriffsdefinition Passivradar
+                \item Monostatische und bistatische Geometrie
+                \item Bistatische Entfernung und Geschwindigkeit
+                \item Methode zur Bestimmung der bistatischen Entf.\ und Geschw.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \begin{adjustbox}{max width=\linewidth,max height=0.3\textheight}
+                \begin{tikzpicture}
+                    \input{graphs/topology.tikz}
+                    \drawTopology{<1->}{<1->}{bg}{fg}
+                \end{tikzpicture}
+            \end{adjustbox}
+            \begin{adjustbox}{max width=\linewidth,max height=0.3\textheight}
+                \begin{tikzpicture}
+                    \input{graphs/bistatic-geometry.tikz}
+                    \drawBistaticGeometry{bg}
+                \end{tikzpicture}
+            \end{adjustbox}
+            \begin{adjustbox}{max width=\linewidth,max height=0.25\textheight}
+                \begin{tikzpicture}
+                    \input{graphs/bistatic-velocity.tikz}
+                \end{tikzpicture}
+            \end{adjustbox}
+            \tiny\begin{equation}
+                \psi(R, V) = \int_{-T/2}^{T/2} {x_{e}(s) \cdot x_{r}^{*}} \left( s - \frac{R}{c} \right)\mathrm{e}^{- \mathrm{j} \frac{2 \pi}{\lambda} V s} \, d s
+            \end{equation}\normalsize
+        \end{column}
+    \end{columns}
+
+    \vspace{\baselineskip}
+
+    \centering
+    \huge Danke für Ihre Aufmerksamkeit! \normalsize
+\end{frame}
