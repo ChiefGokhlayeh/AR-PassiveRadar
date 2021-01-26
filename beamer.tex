@@ -28,13 +28,13 @@
 \addbibresource{references.bib}
 \captionsetup{justification=centering,font=footnotesize}
 \contourlength{0.7pt}
-\graphicspath{{images/}}
+\graphicspath{{images/} {matlab/}}
 \pgfplotsset{width=9cm,compat=newest}
 \setlength{\bibhang}{0cm} % left-align bibliography
 \sisetup{locale = DE}
 \tikzset{>=Stealth}
 \usetheme[progressbar=frametitle]{metropolis}
-\usetikzlibrary{angles,arrows.meta,,calc,math,positioning,shadows,shapes.misc,trees,quotes}
+\usetikzlibrary{angles,arrows.meta,,calc,math,positioning,shadows,shapes.misc,tikzmark,trees,quotes}
 \tikzset{
   invisible/.style={opacity=0},
   visible on/.style={alt={#1{}{invisible}}},
@@ -71,6 +71,7 @@
 
   \include{beamer/introduction}
   \include{beamer/bistatic_principle}
+  \include{beamer/signal_correlation}
 
   \begin{frame}[allowframebreaks]
     \frametitle{Quellen}

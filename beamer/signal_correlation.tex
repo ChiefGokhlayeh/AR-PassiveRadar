@@ -1,0 +1,105 @@
+% !TeX root = ../beamer.tex
+\section{Signal Korrelation}
+
+\begin{frame}
+    \frametitle{Ermittlung der bistatischen Entfernung}
+
+    \begin{itemize}
+        \centering
+        \item Bestimmung der \textbf{bistatischen Entfernung} aus gemessenem \textbf{Zeitversatz} \(\tau\) zwischen \textbf{Echo-} und \textbf{Referenzsignal}:
+              \begin{equation}
+                  R = \tau \tikzmarknode{c}{c}
+              \end{equation}
+              \tikzmarknode{c_txt}{Lichtgeschwindigkeit \(\approx\) \SI[per-mode=symbol]{3e8}{\metre\per\second}}
+              \begin{tikzpicture}[remember picture,overlay]
+                  \draw [->] (c_txt) to [bend right,in=-100,out=90] (c.south);
+              \end{tikzpicture}
+
+              \vspace{\baselineskip}
+
+        \item<2-> \textbf{Wie wird Zeitversatz \(\tau\) gemessen?}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Referenz- und Echosignal}
+
+    Gepulstes Beispiel:
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth,height=\textheight-5\baselineskip,keepaspectratio]{reference_signal.eps}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth,height=\textheight-5\baselineskip,keepaspectratio]{echo_signal.eps}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kreuzkorrelation}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth,height=\textheight-3\baselineskip,keepaspectratio]{correlation_linear.eps}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kreuzkorrelation}
+
+    \begin{itemize}
+        \item Gibt Aussage über \textbf{Zeitversatz} zweier Signale
+        \item Definition für Referenzsignal \(x_{r}\) und Echosignal \(x_{e}\):
+              \begin{equation}
+                  \psi(t) = \int_{-T/2}^{T/2}{ x_{e}(s) x_{r}^{*}(s - t) \, d s}
+              \end{equation}
+        \item<2-> Ausgedrückt als bistatische Entfernung (\(R = c t\)):
+              \begin{equation}
+                  \psi(R) = \int_{-T/2}^{T/2}{ x_{e}(s) x_{r}^{*} \left( s - \frac{R}{c} \right) \, d s}
+              \end{equation}
+        \item<3-> Wird über \textbf{Bereich von \(R\)} ausgewertet
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Nächster Schritt: Kreuzambiguitätsfunktion}
+
+    \begin{itemize}
+        \item Definition:
+              \begin{equation}
+                  \psi(R, V) = \int_{-T/2}^{T/2} {x_{e}(s) \cdot x_{r}^{*}} \left( s - \frac{R}{c} \right)\mathrm{e}^{- \mathrm{j} \frac{2 \pi}{\lambda} V s} \, d s
+              \end{equation}
+        \item Berücksichtigt auch \textbf{Dopplershift} und damit bistatische Geschw.
+        \item Wird über \textbf{Bereich von \(R\) und \(V\)} ausgewertet
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Range-Doppler Map}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth,height=\textheight-5\baselineskip,keepaspectratio]{range_doppler.png}
+        \caption{Ausschnitt aus Kreuzambiguitätsfunktion für bewegtes Ziel~\cite[p.~161]{Malanowski2019}.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Transformation in Kartesische Koordinaten}
+
+    \Large Wie gelangt man von \textbf{bistatischer} zur \textbf{kartesischen Darstellung}?\normalsize
+
+    \vspace{2\baselineskip}
+
+    Möglichkeiten:
+    \begin{enumerate}
+        \item \textbf{Antennenrichtwirkung} nutzen um bistatischen Ellipsoiden \emph{abzutasten}
+        \item \textbf{Ellipsoiden} verschiedener Rx-Tx Paare \textbf{übereinanderlegen}
+    \end{enumerate}
+\end{frame}
