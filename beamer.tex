@@ -23,6 +23,7 @@
 \usepackage{textcomp}
 \usepackage{tikz}
 \usepackage{xcolor}
+\usepackage{appendixnumberbeamer}
 
 \addbibresource{references.bib}
 \captionsetup{justification=centering,font=footnotesize}
@@ -32,7 +33,7 @@
 \setlength{\bibhang}{0cm} % left-align bibliography
 \sisetup{locale = DE}
 \tikzset{>=Stealth}
-\usetheme{metropolis}
+\usetheme[progressbar=frametitle]{metropolis}
 \usetikzlibrary{angles,arrows.meta,,calc,math,positioning,shadows,shapes.misc,trees,quotes}
 \tikzset{
   invisible/.style={opacity=0},
@@ -40,6 +41,11 @@
   alt/.code args={<#1>#2#3}{%
     \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
   },
+}
+
+\DefineBibliographyStrings{ngerman}{
+    andothers = {{et\,al\adddot}},
+    online = {Online},
 }
 
 \title{Passive Radar}
@@ -56,20 +62,24 @@
 \frame{\titlepage}
 
 {
+  \section*{Inhalt}
   \nologo{}
   \begin{frame}[allowframebreaks]
-    \frametitle{Agenda}
+    \frametitle{Inhalt}
     \tableofcontents
   \end{frame}
 
   \include{beamer/introduction}
-  \include{beamer/history}
   \include{beamer/bistatic_principle}
 
   \begin{frame}[allowframebreaks]
     \frametitle{Quellen}
     \printbibliography
   \end{frame}
+
+  \appendix
+  \section{BACKUP}
+  \include{beamer/history}
 }
 
 \end{document}
