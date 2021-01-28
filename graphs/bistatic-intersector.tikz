@@ -1,12 +1,11 @@
 
-\def\F{5}
-\coordinate (rx1_coord) at (-\F,0);
-\coordinate (tx1_coord) at (\F,0);
+\coordinate (rx1_coord) at (-5,0);
+\coordinate (tx1_coord) at (5,0);
 \coordinate (tx2_coord) at (2,2);
-\coordinate (tx3_coord) at (1,-3);
-\coordinate (target_coord) at (2,3.5);
+\coordinate (tx3_coord) at (6,-3);
+\coordinate (target_coord) at (-2,-3.5);
 
-\draw [visible on=<2->]
+\draw [visible on=<2->,red]
 let
 \p1=(tx1_coord),
 \p2=($(target_coord)-(\p1)$),
@@ -20,38 +19,42 @@ in
 ($(rx1_coord)!0.5!(\p1)$)
 circle [x radius=\n3,y radius=\n4,draw=gray];
 
-\draw [visible on=<3->]
+\draw [visible on=<3->,green]
 let
 \p1=(tx2_coord),
 \p2=($(target_coord)-(\p1)$),
 \p3=($(target_coord)-(rx1_coord)$),
 \p4=($(\p1)-(rx1_coord)$),
+\p5=(rx1_coord),
 \n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
 \n2={scalar(veclen(\x4,\y4)*1pt/1cm)},
 \n3={sqrt(pow(\n1/2, 2))},
 \n4={sqrt(pow(\n1/2, 2) - pow(\n2/2, 2))},
+\n5={atan2(scalar(\y1*1pt/1cm),scalar(\x1*1pt/1cm)-scalar(\x5*1pt/1cm))},
 in
 ($(rx1_coord)!0.5!(\p1)$)
-circle [x radius=\n3,y radius=\n4,draw=gray,rotate=15.94];
+circle [x radius=\n3,y radius=\n4,draw=gray,rotate=\n5];
 
-\draw [visible on=<4->]
+\draw [visible on=<4->,blue]
 let
 \p1=(tx3_coord),
 \p2=($(target_coord)-(\p1)$),
 \p3=($(target_coord)-(rx1_coord)$),
 \p4=($(\p1)-(rx1_coord)$),
+\p5=(rx1_coord),
 \n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
 \n2={scalar(veclen(\x4,\y4)*1pt/1cm)},
 \n3={sqrt(pow(\n1/2, 2))},
 \n4={sqrt(pow(\n1/2, 2) - pow(\n2/2, 2))},
+\n5={atan2(scalar(\y1*1pt/1cm),scalar(\x1*1pt/1cm)-scalar(\x5*1pt/1cm))},
 in
 ($(rx1_coord)!0.5!(\p1)$)
-circle [x radius=\n3,y radius=\n4,draw=gray,rotate=-26.57];
+circle [x radius=\n3,y radius=\n4,draw=gray,rotate=\n5];
 
-\draw [dotted] (rx1_coord) node [cross out,draw,solid] {} node [below=2pt] {Rx}  -- (tx1_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx1};
+\draw [dotted,red] (rx1_coord) -- (tx1_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx1};
+\draw [dotted,green] (rx1_coord) -- (tx2_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx2};
+\draw [dotted,blue] (rx1_coord) -- (tx3_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx3};
 
-\draw [dotted] (rx1_coord) -- (tx2_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx2};
-\draw [dotted] (rx1_coord) -- (tx3_coord) node [cross out,draw,solid] {} node [below=2pt] {Tx3};
-
-\node at (target_coord) [visible on=<1>] {\faPlane};
-\node at (target_coord) [visible on=<4>] {\faPlane};
+\node at (target_coord) [visible on=<1>] {\huge\faPlane};
+\node at (target_coord) [visible on=<5>] {\huge\faPlane};
+\path (rx1_coord) node [below=2pt] {Rx} node [cross out,draw,solid] {};
