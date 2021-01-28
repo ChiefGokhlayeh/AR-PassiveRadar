@@ -5,7 +5,7 @@
 \coordinate (target_coord) at (2,3.5);
 \coordinate (pencil) at (0.1,0.6);
 
-\draw [visible on=<3->] (0,0)
+\draw [visible on=<4->] (0,0)
 let
 \p1=($(target_coord)-(tx1_coord)$),
 \p2=($(target_coord)-(rx1_coord)$),
@@ -22,7 +22,7 @@ circle [x radius=\n2,y radius=\n3,draw=gray];
 
 \draw [visible on=<2->,<-] (target_coord) -- ++(pencil);
 
-\node [visible on=<4->] at (0,-1.5) {%
+\node [visible on=<3->] at (0,-1.5) {%
     \(\begin{aligned}
             & R_{1} + R_{2}                & = \text{const.} & \dots \text{bistatische Summe}      \\
         R = & R_{1} + R_{2} - R_{\text{b}} & = \text{const.} & \dots \text{bistatische Entfernung} \\
