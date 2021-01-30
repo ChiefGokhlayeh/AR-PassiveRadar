@@ -1,0 +1,70 @@
+\coordinate (rx1_coord) at (-5,0);
+\coordinate (tx1_coord) at (5,0);
+\coordinate (target_coord) at (-2,-3.5);
+
+\begin{scope}
+    \clip
+    let
+    \p1=(tx1_coord),
+    \p2=($(target_coord)-(\p1)$),
+    \p3=($(target_coord)-(rx1_coord)$),
+    \p4=($(\p1)-(rx1_coord)$),
+    \n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
+    \n2={scalar(veclen(\x4,\y4)*1pt/1cm)},
+    \n3={sqrt(pow(\n1/2, 2))},
+    \n4={sqrt(pow(\n1/2, 2) - pow(\n2/2, 2))},
+    in
+    ($(rx1_coord)!0.5!(\p1)$)
+    circle [x radius=\n3,y radius=\n4];
+
+    \foreach \angle/\slide in {60/2,-90/3,-50/4} {
+            \path [rotate around={{\angle+5}:(rx1_coord)}]
+            let
+            \p1=(tx1_coord),
+            \p2=($(target_coord)-(\p1)$),
+            \p3=($(target_coord)-(rx1_coord)$),
+            \n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
+            \n3={sqrt(pow(\n1/2, 2)) + 1},
+            in
+            (rx1_coord) -- (\n3,0) node (a) {};
+            \path [rotate around={{\angle-5}:(rx1_coord)}]
+            let
+            \p1=(tx1_coord),
+            \p2=($(target_coord)-(\p1)$),
+            \p3=($(target_coord)-(rx1_coord)$),
+            \n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
+            \n3={sqrt(pow(\n1/2, 2)) + 1},
+            in
+            (rx1_coord) -- (\n3,0) node (b) {};
+
+            \fill [red,opacity=0.5,visible on=<\slide>] (rx1_coord) -- (a.center) -- (b.center);
+        }
+\end{scope}
+
+\node (antenna_north) [above=0.4 of rx1_coord,anchor=south] {};
+\node (antenna_east) [base right=0.4 of rx1_coord,anchor=south] {};
+\node (antenna_south) [below=0.4 of rx1_coord,anchor=south] {};
+\node (antenna_west) [base left=0.4 of rx1_coord,anchor=south] {};
+
+\node [bareantenna,scale=0.5,above=0 of antenna_north.south] {};
+\node [bareantenna,scale=0.5,above=0 of antenna_east.south] {};
+\node [bareantenna,scale=0.5,above=0 of antenna_south.south] {};
+\node [bareantenna,scale=0.5,above=0 of antenna_west.south] {};
+
+\draw (antenna_north.south) -- (rx1_coord) edge (antenna_east.south) -- (rx1_coord) edge (antenna_south.south) -- (rx1_coord) edge (antenna_west.south) -- (rx1_coord);
+
+\draw
+let
+\p1=(tx1_coord),
+\p2=($(target_coord)-(\p1)$),
+\p3=($(target_coord)-(rx1_coord)$),
+\p4=($(\p1)-(rx1_coord)$),
+\n1={scalar((veclen(\x2,\y2) + veclen(\x3,\y3))*1pt/1cm)},
+\n2={scalar(veclen(\x4,\y4)*1pt/1cm)},
+\n3={sqrt(pow(\n1/2, 2))},
+\n4={sqrt(pow(\n1/2, 2) - pow(\n2/2, 2))},
+in
+($(rx1_coord)!0.5!(\p1)$)
+circle [x radius=\n3,y radius=\n4,draw=gray];
+
+\node at (target_coord) [visible on=<4>] {\huge\faPlane};
